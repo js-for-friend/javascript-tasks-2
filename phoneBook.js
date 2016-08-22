@@ -16,7 +16,8 @@ module.exports.add = function add(name, phone, email) {
             phone:phone,
             email:email
         }
-        phoneBook.push(contact); //метод push добавляет элементы в массив
+        phoneBook.push(contact); //метод push добавляет элементы в массив (также метод unshift - в начало массива, но он медленнее)
+        console.log('Контакт введен!'+contact);
     }
     else {                                    // если не прошла проверку
         console.log('Контакт введен некорректно!');
@@ -39,6 +40,10 @@ function validEmail (email) {     //функция валидации email
  Поиск ведется по всем полям.
  */
 module.exports.find = function find(query) {
+    var search=
+    for (var i = 0; i < search.length; i++) {
+   console.log( search[i].name+' '+search[i].phone+' '+search[i].email);
+    
 };
 /*
  Функция удаления записи в телефонной книге.
