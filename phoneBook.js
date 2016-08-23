@@ -25,12 +25,12 @@ module.exports.add = function add(name, phone, email) {
 };
 
 function validPhone(phone) {           //функция валидации номера
-    var testPhone= /\+\s()d/;
+    var testPhone= /^(\+?(\d{0,3})|(\d{1,2}))\s?(\(?(\d{3}\))|\d{3})[\s|-]?\d{3}[\s|-]?\d{1}[\s|-]?\d{3}/;
     return testPhone.test(phone);     //подходит ли строка под регулярное выражение
 }
 
 function validEmail (email) {     //функция валидации email
-    var testEmail= /^[A-Za-zА-Яа-я0-9_]/;
+    var testEmail= /^[A-Za-zА-Яа-я0-9_]\@{1,}[A-Za-z]$/;
     return testEmail.test(email);
 
 };
@@ -40,16 +40,25 @@ function validEmail (email) {     //функция валидации email
  Поиск ведется по всем полям.
  */
 module.exports.find = function find(query) {
-    var search=
-    for (var i = 0; i < search.length; i++) {
-   console.log( search[i].name+' '+search[i].phone+' '+search[i].email);
-    
+    for (var i = 0; i < phoneBook.length; i++) {
+        if (query.indexOf(query)) {   //Метод indexOf() возвращает индекс первого вхождения указанного значения, если не найден -1
+            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email)
+        }
+    }
+    return 0;
 };
 /*
  Функция удаления записи в телефонной книге.
  */
 module.exports.remove = function remove(query) {
-
+    var queryRemove = new RegExp(query);    // сопоставляем текст 
+    for (var i = 0; i < phoneBook.length; i++) {
+        if (queryRemove.test(phoneBook[i].hash)) {  //тестируем совпадение в строке 
+            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
+            delete phoneBook[i] //удаляет объект
+        }
+    }
+    return 0;
 };
 /*
  Функция импорта записей из файла (задача со звёздочкой!).
