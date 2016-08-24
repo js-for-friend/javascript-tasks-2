@@ -64,6 +64,7 @@ module.exports.remove = function remove(query) {
  Функция импорта записей из файла (задача со звёздочкой!).
  */
 module.exports.importFromCsv = function importFromCsv(filename) {
+    console.log('Страница в разработке!');
 
 
     // Ваша чёрная магия:
@@ -75,6 +76,7 @@ module.exports.importFromCsv = function importFromCsv(filename) {
  Функция вывода всех телефонов в виде ASCII (задача со звёздочкой!).
  */
 module.exports.showTable = function showTable() {
+    console.log('Страница в разработке!');
 
     // Ваша чёрная магия здесь
 
