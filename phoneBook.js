@@ -17,7 +17,7 @@ module.exports.add = function add(name, phone, email) {
             email:email
         }
         phoneBook.push(contact); //метод push добавляет элементы в массив (также метод unshift - в начало массива, но он медленнее)
-        console.log('Контакт введен!'+contact);
+        console.log('Контакт введен!'+ contact.name + ' ' + contact.phone + ' ' + contact.email);
     }
     else {                                    // если не прошла проверку
         console.log('Контакт введен некорректно!');
@@ -25,12 +25,12 @@ module.exports.add = function add(name, phone, email) {
 };
 
 function validPhone(phone) {           //функция валидации номера
-    var testPhone= /^(\+?(\d{0,3})|(\d{1,2}))\s?(\(?(\d{3}\))|\d{3})[\s|-]?\d{3}[\s|-]?\d{1}[\s|-]?\d{3}/;
+    var testPhone= /^(\+?(\d{0,3})|(\d{1,2}))\s?(\(?(\d{3}\))|\d{3})[\s|-]?\d{3}[\s|-]?\d{1}[\s|-]?\d{3}$/;
     return testPhone.test(phone);     //подходит ли строка под регулярное выражение
 }
 
 function validEmail (email) {     //функция валидации email
-    var testEmail= /^[A-Za-zА-Яа-я0-9_]\@{1,}[A-Za-z]$/;
+    var testEmail= /.+@.+\..+/i;
     return testEmail.test(email);
 
 };
@@ -41,8 +41,8 @@ function validEmail (email) {     //функция валидации email
  */
 module.exports.find = function find(query) {
     for (var i = 0; i < phoneBook.length; i++) {
-        if (query.indexOf(query)) {   //Метод indexOf() возвращает индекс первого вхождения указанного значения, если не найден -1
-            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email)
+        if (phoneBook.indexOf(query)) {   //Метод indexOf() возвращает индекс первого вхождения указанного значения, если не найден -1
+            console.log('Найден:' + phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email)
         }
     }
     return 0;
