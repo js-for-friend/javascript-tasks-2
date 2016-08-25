@@ -51,15 +51,13 @@ module.exports.find = function find(query) {
  Функция удаления записи в телефонной книге.
  */
 module.exports.remove = function remove(query) {
-    var queryRemove = new RegExp(query);    // сопоставляем текст 
     for (var i = 0; i < phoneBook.length; i++) {
-        if (queryRemove.test(phoneBook[i].hash)) {  //тестируем совпадение в строке 
-            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
-            delete phoneBook[i] //удаляет объект
-        }
-    }
-    return 0;
-};
+		console.log(i);
+		console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
+		phoneBook.splice(1,[i])
+	}			    
+    return 0;	
+}
 /*
  Функция импорта записей из файла (задача со звёздочкой!).
  */
@@ -76,7 +74,10 @@ module.exports.importFromCsv = function importFromCsv(filename) {
  Функция вывода всех телефонов в виде ASCII (задача со звёздочкой!).
  */
 module.exports.showTable = function showTable() {
-    console.log('Страница в разработке!');
+    console.log('┌─────────────┬────────────────────╥──────────────────┐');
+	console.log('│ Имя         │ Телефон            ║ email            │');
+	console.log('├─────────────┼────────────────────╫──────────────────┤');
+	console.log('├────' + + '──┼────'+ + '───────╫─────'+   +  '──────┤');
 
     // Ваша чёрная магия здесь
 
