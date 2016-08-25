@@ -14,7 +14,8 @@ module.exports.add = function add(name, phone, email) {
         var contact={              // создаем переменную contact со свойством
             name:name,
             phone:phone,
-            email:email
+            email:email,
+			search:name+';'+phone+';'+email
         }
         phoneBook.push(contact); //метод push добавляет элементы в массив (также метод unshift - в начало массива, но он медленнее)
         console.log('Контакт введен!'+ contact.name + ' ' + contact.phone + ' ' + contact.email);
@@ -22,6 +23,7 @@ module.exports.add = function add(name, phone, email) {
     else {                                    // если не прошла проверку
         console.log('Контакт введен некорректно!');
     }
+	
 };
 
 function validPhone(phone) {           //функция валидации номера
@@ -51,18 +53,20 @@ module.exports.find = function find(query) {
  Функция удаления записи в телефонной книге.
  */
 module.exports.remove = function remove(query) {
+	 var x = new RegExp(query);
     for (var i = 0; i < phoneBook.length; i++) {
-		console.log(i);
-		console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
-		phoneBook.splice(1,[i])
-	}			    
-    return 0;	
-}
+        if (x.test(phoneBook[i].search)) {
+            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
+            delete phoneBook[i]
+        }
+    }
+    return 0;
+};		
 /*
  Функция импорта записей из файла (задача со звёздочкой!).
  */
 module.exports.importFromCsv = function importFromCsv(filename) {
-    console.log('Страница в разработке!');
+    
 
 
     // Ваша чёрная магия:
@@ -74,10 +78,11 @@ module.exports.importFromCsv = function importFromCsv(filename) {
  Функция вывода всех телефонов в виде ASCII (задача со звёздочкой!).
  */
 module.exports.showTable = function showTable() {
-    console.log('┌─────────────┬────────────────────╥──────────────────┐');
+ /*   console.log('┌─────────────┬────────────────────╥──────────────────┐');
 	console.log('│ Имя         │ Телефон            ║ email            │');
 	console.log('├─────────────┼────────────────────╫──────────────────┤');
 	console.log('├────' + + '──┼────'+ + '───────╫─────'+   +  '──────┤');
+	*/
 
     // Ваша чёрная магия здесь
 
