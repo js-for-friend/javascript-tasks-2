@@ -21,7 +21,7 @@ module.exports.add = function add(name, phone, email) {
         console.log('Контакт введен!'+ contact.name + ' ' + contact.phone + ' ' + contact.email);
     }
     else {                                    // если не прошла проверку
-        console.log('Контакт введен некорректно!');
+        console.log('Контакт введен некорректно!'); //
     }
 	
 };
@@ -55,7 +55,7 @@ module.exports.find = function find(query) {
 module.exports.remove = function remove(query) {
 	 var x = new RegExp(query);
     for (var i = 0; i < phoneBook.length; i++) {
-        if (x.test(phoneBook[i].search)) {
+        if (x.test(phoneBook[i].search)) {   //свойство search  прописано строкой
             console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
             delete phoneBook[i]
         }
