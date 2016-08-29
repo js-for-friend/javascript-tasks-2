@@ -31,7 +31,6 @@ module.exports.add = function add(name, phone, email) {
 module.exports.find = function find(query) {
 
     // Ваша удивительная магия здесь
-    module.exports.find = function find(query) {
         for (var i = 0; i < phoneBook.length; i++) {
             if ((phoneBook[i].name.indexOf(query) > -1) || (phoneBook[i].phone.indexOf(query) > -1) || (phoneBook[i].email.indexOf(query) > -1) || (query === undefined)) {
                 console.log(phoneBook[i]);}
