@@ -41,14 +41,16 @@ function validEmail (email) {     //функция валидации email
  Функция поиска записи в телефонную книгу.
  Поиск ведется по всем полям.
  */
-module.exports.find = function find(query) {
+module.exports.remove = function remove(query) {
+	 var x = new RegExp(query);
     for (var i = 0; i < phoneBook.length; i++) {
-        if (phoneBook.indexOf(query)) {   //Метод indexOf() возвращает индекс первого вхождения указанного значения, если не найден -1
-            console.log('Найден:' + phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email)
+        if (x.test(phoneBook[i].search)) {
+            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
+            delete phoneBook[i]
         }
     }
     return 0;
-};
+};	
 /*
  Функция удаления записи в телефонной книге.
  */
