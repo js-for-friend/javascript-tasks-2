@@ -37,6 +37,10 @@ function validEmail (email) {     //функция валидации email
 
 };
 
+function showMessage(text, phoneRecord) {
+ console.log(text, phoneRecord.name, phoneRecord.phone, phoneRecord.email);
+ }
+
 /*
  Функция поиска записи в телефонную книгу.
  Поиск ведется по всем полям.
@@ -45,8 +49,7 @@ module.exports.remove = function remove(query) {
 	 var x = new RegExp(query);
     for (var i = 0; i < phoneBook.length; i++) {
         if (x.test(phoneBook[i].search)) {
-            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
-            delete phoneBook[i]
+            showMessage('Найден:', phoneBook[i])
         }
     }
     return 0;
@@ -58,7 +61,7 @@ module.exports.remove = function remove(query) {
 	 var x = new RegExp(query);
     for (var i = 0; i < phoneBook.length; i++) {
         if (x.test(phoneBook[i].search)) {   //свойство search  прописано строкой
-            console.log(phoneBook[i].name,phoneBook[i].phone,phoneBook[i].email,'- запись удалена');
+            showMessage('Запись удалена:', phoneBook[i]);
             delete phoneBook[i]
         }
     }
