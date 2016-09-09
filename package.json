@@ -1,9 +1,26 @@
 {
-    "private": true,
-    "dependencies": {
-        "jscs": "^2.2.1"
-    },
-    "scripts": {
-         "lint": "jscs ."
-    }
+  "private": true,
+  "dependencies": {
+    "jscs": "^2.2.1"
+  },
+  "scripts": {
+    "lint": "jscs ."
+  },
+  "name": "javascript-tasks-2",
+  "description": ":sos: [Как создать Pull Request](https://github.com/urfu-2015/guides/blob/master/how-to-pull-request.md)   :warning: При создании PullRequest'а не забудьте указать ваши имя и фамилию.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skhoborov/javascript-tasks-2.git"
+  },
+  "keywords": [
+    "phone"
+  ],
+  "author": "Khoborov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skhoborov/javascript-tasks-2/issues"
+  },
+  "homepage": "https://github.com/skhoborov/javascript-tasks-2#readme"
 }
