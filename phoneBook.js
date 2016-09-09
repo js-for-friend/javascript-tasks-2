@@ -71,7 +71,14 @@ module.exports.remove = function remove(query) {
  Функция импорта записей из файла (задача со звёздочкой!).
  */
 module.exports.importFromCsv = function importFromCsv(filename) {
-    
+    fs.readFile('./backup.csv', function(err, data) {
+		if (err) {
+			console.error(err);
+			} else {
+				console.log(data.toString('utf-8'));
+		            }
+	});
+				
 
 
     // Ваша чёрная магия:
