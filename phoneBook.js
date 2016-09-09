@@ -78,15 +78,18 @@ module.exports.remove = function remove(query) {
 
 
 
-module.export.importFromCsv = function importFromCsv() {
-	fs.readFile('./backup.csv', function(err, data) {
+module.exports.importFromCsv = function importFromCsv() {
+	fs.readFile('./backup.csv', {encoding: 'utf-8'}, function(err, data) {
 		if (err) {
 			console.error(err);
 			} else {
-				console.log(data.toString('utf-8'));
-				}
-				});
-				}
+				for (var i = 0; i < data.lenght; i++) {
+				module.exports.add(rec[0], rec[1], rec[2]);
+				};
+				console.log('Добавлены контакты', data);
+				};
+	});
+}
 
 	
 /*
